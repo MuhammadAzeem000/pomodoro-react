@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { medium, veryDarkBlue, softRed } from "../globalStyle";
+import { medium, veryDarkBlue, softRed } from "../../globalStyle";
 
 const Logo = styled.h1`
   font-size: 28px;

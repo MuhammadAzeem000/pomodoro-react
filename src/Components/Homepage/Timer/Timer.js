@@ -1,5 +1,5 @@
 import React from "react";
-import { TimerCircle, TimerText, TimerPause } from "./timerStyle";
+import { TimerCircle, TimerText, TimerPause } from "./style";
 
 function Timer() {
   return (

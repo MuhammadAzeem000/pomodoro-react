@@ -1,25 +1,11 @@
-import { Logo, Menu, MenuItem, SettingIcon } from "./appStyle";
-import SettingIconURL from "../assets/setting.svg";
-import { menuItems } from "../data";
-import Timer from "./Timer/Timer";
+import React from "react";
+import Homepage from "./Homepage/Homepage";
+import SettingModal from "./SettingModal/SettingModal";
+import { useGlobalContext } from "../GlobalContext/Context";
 
 function App() {
-  return (
-    <>
-      <Logo>Pomodoro</Logo>
-      <Menu>
-        {menuItems.map((item, index) => {
-          return (
-            <MenuItem key={index} isActive={item.status}>
-              {item.title}
-            </MenuItem>
-          );
-        })}
-      </Menu>
-      <Timer />
-      <SettingIcon src={SettingIconURL} />
-    </>
-  );
+  const { isModalOpen } = useGlobalContext();
+  return <>{isModalOpen ? <SettingModal /> : <Homepage />}</>;
 }
 
 export default App;

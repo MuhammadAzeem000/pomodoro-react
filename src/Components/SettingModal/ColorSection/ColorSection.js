@@ -1,26 +1,29 @@
 import React from "react";
 import { ModalSection, ModalHeading } from "../settingModalStyle";
-import {
-  ColorSelector,
-  ColorSelectorIcon,
-  TickIcon,
-} from "./colorSectionStyle";
-import { themeColors } from "../../../data";
+import { ColorSelector, ColorSelectorIcon, TickIcon } from "./style";
+
 import checkIcon from "../../../assets/check.svg";
+import { useGlobalContext } from "../../../GlobalContext/Context";
+import { SETTING_COLOR_TOGGLE } from "../../../GlobalContext/actionType";
 
 function ColorSection() {
+  const { themeColors, dispatch } = useGlobalContext();
   return (
     <ModalSection>
       <ModalHeading>COLOR</ModalHeading>
       <ColorSelector>
-        {themeColors.map((color, index) => {
+        {themeColors.map((color) => {
+          const { id, colorCode, status } = color;
           return (
             <ColorSelectorIcon
-              key={index}
-              color={color.colorCode}
-              isActive={color.status}
+              key={id}
+              color={colorCode}
+              isActive={status}
+              onClick={() =>
+                dispatch({ type: SETTING_COLOR_TOGGLE, payload: id })
+              }
             >
-              {color.status && <TickIcon src={checkIcon} />}
+              {status && <TickIcon src={checkIcon} />}
             </ColorSelectorIcon>
           );
         })}

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { greyish, bold } from "../../../globalStyle";
+import { bold } from "../../../globalStyle";
 
 //Font Section
 
@@ -9,7 +9,6 @@ const ColorSelector = styled.div`
 `;
 
 const ColorSelectorIcon = styled.span`
-  ${(prop) => console.log(prop.color)}
   display: inline-block;
   display: flex;
   align-items: center;
@@ -19,6 +18,7 @@ const ColorSelectorIcon = styled.span`
   width: 50px;
   border-radius: 50%;
   background-color: ${(prop) => prop.color};
+  cursor: pointer;
 `;
 
 const TickIcon = styled.img`

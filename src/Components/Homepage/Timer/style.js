@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { veryDarkBlue, white } from "../../globalStyle";
+import { veryDarkBlue, white } from "../../../globalStyle";
 
 const TimerCircle = styled.div`
   display: flex;

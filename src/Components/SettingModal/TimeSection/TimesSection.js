@@ -1,6 +1,6 @@
 import React from "react";
 import { ModalSection, ModalHeading } from "../settingModalStyle";
-import { TimerSettingInput, TimerSetting, Label } from "./timerSectionStyle";
+import { TimerSettingInput, TimerSetting, Label } from "./style";
 import { timeValues } from "../../../data";
 
 function TimeSection() {
@@ -8,14 +8,15 @@ function TimeSection() {
     <ModalSection>
       <ModalHeading>TIME (MINUTES)</ModalHeading>
       {timeValues.map((time, index) => {
+        const { title, min, max } = time;
         return (
           <TimerSetting key={index}>
-            <Label>{time.title}</Label>
+            <Label>{title}</Label>
             <TimerSettingInput
               type="number"
               defaultValue={0}
-              min={time.min}
-              max={time.max}
+              min={min}
+              max={max}
             />
           </TimerSetting>
         );
