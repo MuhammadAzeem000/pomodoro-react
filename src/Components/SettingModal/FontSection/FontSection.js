@@ -5,21 +5,23 @@ import { SETTING_FONT_TOGGLE } from "../../../GlobalContext/actionType";
 
 import { useGlobalContext } from "../../../GlobalContext/Context";
 
-function FontSection() {
+function FontSection({ formSetting, setFormSetting }) {
   const { fontValues, dispatch } = useGlobalContext();
+  function fontHandler(id, title) {
+    dispatch({ type: SETTING_FONT_TOGGLE, payload: id });
+    setFormSetting({ ...formSetting, fontName: title });
+  }
   return (
     <ModalSection>
       <ModalHeading>FONTS</ModalHeading>
       <FontSelector>
         {fontValues.map((font) => {
-          const { id, status } = font;
+          const { id, title, status } = font;
           return (
             <FontSelectorIcon
               key={id}
               isActive={status}
-              onClick={() =>
-                dispatch({ type: SETTING_FONT_TOGGLE, payload: id })
-              }
+              onClick={() => fontHandler(id, title)}
             >
               Aa
             </FontSelectorIcon>

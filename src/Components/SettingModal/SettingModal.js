@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TimeSection from "./TimeSection/TimesSection";
 import FontSection from "./FontSection/FontSection";
 import ColorSection from "./ColorSection/ColorSection";
@@ -17,7 +17,16 @@ import {
 } from "./settingModalStyle";
 
 function SettingModal() {
+  const [formSetting, setFormSetting] = useState({
+    pomodoroTime: null,
+    shortTime: null,
+    longTime: null,
+    fontName: null,
+    colorName: null,
+  });
   const { dispatch } = useGlobalContext();
+  const Components = [TimeSection, FontSection, ColorSection];
+  console.log(Components);
   return (
     <ModalWrapper>
       <ModalHeader>
@@ -33,9 +42,16 @@ function SettingModal() {
         />
       </ModalHeader>
       <ModalBody>
-        <TimeSection />
-        <FontSection />
-        <ColorSection />
+        {Components.map((Component, index) => {
+          return (
+            <Component
+              key={index}
+              formSetting={formSetting}
+              setFormSetting={setFormSetting}
+            />
+          );
+        })}
+
         <ApplyButton type="submit">Apply</ApplyButton>
       </ModalBody>
     </ModalWrapper>

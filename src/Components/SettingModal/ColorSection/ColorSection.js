@@ -6,22 +6,24 @@ import checkIcon from "../../../assets/check.svg";
 import { useGlobalContext } from "../../../GlobalContext/Context";
 import { SETTING_COLOR_TOGGLE } from "../../../GlobalContext/actionType";
 
-function ColorSection() {
+function ColorSection({ formSetting, setFormSetting }) {
   const { themeColors, dispatch } = useGlobalContext();
+  function colorHandler(id, title) {
+    dispatch({ type: SETTING_COLOR_TOGGLE, payload: id });
+    setFormSetting({ ...formSetting, colorName: title });
+  }
   return (
     <ModalSection>
       <ModalHeading>COLOR</ModalHeading>
       <ColorSelector>
         {themeColors.map((color) => {
-          const { id, colorCode, status } = color;
+          const { id, colorCode, status, title } = color;
           return (
             <ColorSelectorIcon
               key={id}
               color={colorCode}
               isActive={status}
-              onClick={() =>
-                dispatch({ type: SETTING_COLOR_TOGGLE, payload: id })
-              }
+              onClick={() => colorHandler(id, title)}
             >
               {status && <TickIcon src={checkIcon} />}
             </ColorSelectorIcon>

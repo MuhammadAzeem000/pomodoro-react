@@ -2,8 +2,27 @@ import React from "react";
 import { ModalSection, ModalHeading } from "../settingModalStyle";
 import { TimerSettingInput, TimerSetting, Label } from "./style";
 import { timeValues } from "../../../data";
+import { removeSpace } from "../../../functions/function";
 
-function TimeSection() {
+function TimeSection({ formSetting, setFormSetting }) {
+  function timeHandler(e, title) {
+    if (title === "Pomodoro") {
+      setFormSetting({
+        ...formSetting,
+        pomodoroTime: Number(e.target.value),
+      });
+    } else if (title === "ShortBreak") {
+      setFormSetting({
+        ...formSetting,
+        shortTime: Number(e.target.value),
+      });
+    } else if (title === "LongBreak") {
+      setFormSetting({
+        ...formSetting,
+        longTime: Number(e.target.value),
+      });
+    }
+  }
   return (
     <ModalSection>
       <ModalHeading>TIME (MINUTES)</ModalHeading>
@@ -15,6 +34,7 @@ function TimeSection() {
             <TimerSettingInput
               type="number"
               defaultValue={0}
+              onChange={(e) => timeHandler(e, removeSpace(title))}
               min={min}
               max={max}
             />

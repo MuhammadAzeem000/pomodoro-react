@@ -12,12 +12,13 @@ const TimerCircle = styled.div`
   background-color: ${veryDarkBlue};
   color: ${white};
   margin: 30px 0px 30px 0px;
+  cursor: pointer;
 `;
 
 const TimerText = styled.h1`
   font-size: 75px;
   margin: 0px;
-  letter-spacing: 2px;
+  text-align: center;
 `;
 
 const TimerPause = styled.p`
