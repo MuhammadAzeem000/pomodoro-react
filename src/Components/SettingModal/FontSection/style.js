@@ -8,7 +8,20 @@ const FontSelector = styled.div`
   justify-content: space-evenly;
 `;
 
+const Label = styled.span`
+  display: none;
+  background-color: ${({ isActive }) => (isActive ? darkBlue : greyish)};
+  color: ${({ isActive }) => (isActive ? greyish : darkBlue)};
+  position: absolute;
+  padding: 3px 5px 3px 5px;
+  border-radius: 5px;
+  top: 110%;
+  font-size: 10px;
+  font-weight: 400;
+`;
+
 const FontSelectorIcon = styled.span`
+  position: relative;
   display: inline-block;
   display: flex;
   align-items: center;
@@ -17,9 +30,12 @@ const FontSelectorIcon = styled.span`
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: ${(prop) => (prop.isActive ? darkBlue : greyish)};
-  color: ${(prop) => (prop.isActive ? greyish : darkBlue)};
+  background-color: ${({ isActive }) => (isActive ? darkBlue : greyish)};
+  color: ${({ isActive }) => (isActive ? greyish : darkBlue)};
   cursor: pointer;
+  &:hover ${Label} {
+    display: block;
+  }
 `;
 
-export { FontSelector, FontSelectorIcon };
+export { FontSelector, FontSelectorIcon, Label };

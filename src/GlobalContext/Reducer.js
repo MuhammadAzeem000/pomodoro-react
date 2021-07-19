@@ -35,7 +35,6 @@ export default (state, action) => {
     }
     case SETTING_FORM_SUBMIT: {
       const { fontName, colorName } = action.payload;
-      console.log({ fontName, colorName });
       return {
         ...state,
         theme: { ...state.theme, mainColor: colorName, mainFont: fontName },

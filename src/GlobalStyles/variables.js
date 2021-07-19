@@ -1,7 +1,7 @@
 //Font Family
-const fontOne = "'Poppins', sans-serif";
-const fontTwo = "'Roboto', sans-serif;";
-const fontThree = "'Montserrat', sans-serif";
+const fontOne = "Poppins";
+const fontTwo = "Roboto";
+const fontThree = "Montserrat";
 
 //Theme Colors
 const colorOne = "#fb6b6f";

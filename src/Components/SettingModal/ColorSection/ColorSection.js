@@ -1,6 +1,6 @@
 import React from "react";
 import { ModalSection, ModalHeading } from "../settingModalStyle";
-import { ColorSelector, ColorSelectorIcon, TickIcon } from "./style";
+import { ColorSelector, ColorSelectorIcon, TickIcon, Label } from "./style";
 
 import checkIcon from "../../../assets/check.svg";
 import { useGlobalContext } from "../../../GlobalContext/Context";
@@ -21,7 +21,7 @@ function ColorSection({ formSetting, setFormSetting }) {
       <ModalHeading>COLOR</ModalHeading>
       <ColorSelector>
         {themeColors.map((color) => {
-          const { id, colorCode, status, title } = color;
+          const { id, colorCode, status } = color;
           return (
             <ColorSelectorIcon
               key={id}
@@ -30,6 +30,8 @@ function ColorSection({ formSetting, setFormSetting }) {
               onClick={() => colorHandler(id, colorCode)}
             >
               {status && <TickIcon src={checkIcon} />}
+
+              <Label isActive={status}>{colorCode}</Label>
             </ColorSelectorIcon>
           );
         })}

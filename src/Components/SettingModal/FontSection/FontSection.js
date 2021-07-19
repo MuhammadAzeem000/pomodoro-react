@@ -1,5 +1,5 @@
 import React from "react";
-import { FontSelector, FontSelectorIcon } from "./style";
+import { FontSelector, FontSelectorIcon, Label } from "./style";
 import { ModalSection, ModalHeading } from "../settingModalStyle";
 import { SETTING_FONT_TOGGLE } from "../../../GlobalContext/actionType";
 
@@ -18,13 +18,15 @@ function FontSection({ formSetting, setFormSetting }) {
         {fontValues.map((font) => {
           const { id, title, status } = font;
           return (
-            <FontSelectorIcon
-              key={id}
-              isActive={status}
-              onClick={() => fontHandler(id, title)}
-            >
-              Aa
-            </FontSelectorIcon>
+            <div key={id}>
+              <FontSelectorIcon
+                isActive={status}
+                onClick={() => fontHandler(id, title)}
+              >
+                Aa
+                <Label isActive={status}>{title}</Label>
+              </FontSelectorIcon>
+            </div>
           );
         })}
       </FontSelector>
