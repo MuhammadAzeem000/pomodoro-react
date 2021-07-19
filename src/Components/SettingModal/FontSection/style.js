@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { greyish, bold, darkBlue } from "../../../globalStyle";
+import { greyish, bold, darkBlue } from "../../../GlobalStyles/variables";
 
 //Font Section
 

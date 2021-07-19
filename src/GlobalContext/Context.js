@@ -10,10 +10,7 @@ export const GlobalProvider = ({ children }) => {
   return (
     <GlobalContext.Provider
       value={{
-        menuItems: state.menuItems,
-        fontValues: state.fontValues,
-        isModalOpen: state.isModalOpen,
-        themeColors: state.themeColors,
+        state: state,
         dispatch,
       }}
     >

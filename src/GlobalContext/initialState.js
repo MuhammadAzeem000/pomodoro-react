@@ -1,26 +1,35 @@
-import { softRed, softBlue, softPurple } from "../globalStyle";
+import {
+  colorOne,
+  colorTwo,
+  colorThree,
+  fontOne,
+  fontTwo,
+  fontThree,
+} from "../GlobalStyles/variables";
+const titles = ["Pomodoro", "Short Break", "Long Break"];
 
 const initialState = {
   menuItems: [
-    { id: 0, title: "Pomodoro", status: true },
-    { id: 1, title: "Short Break", status: false },
-    { id: 2, title: "Long Break", status: false },
+    { id: 0, title: titles[0], status: true },
+    { id: 1, title: titles[1], status: false },
+    { id: 2, title: titles[2], status: false },
   ],
   timeValues: [
-    { id: 0, title: "Pomodoro", min: 0, max: 15, value: 0 },
-    { id: 1, title: "Short Break", min: 0, max: 10, value: 0 },
-    { id: 2, title: "Long Break", min: 0, max: 5, value: 0 },
+    { id: 0, title: titles[0], min: 0, max: 15, value: 0 },
+    { id: 1, title: titles[1], min: 0, max: 10, value: 0 },
+    { id: 2, title: titles[2], min: 0, max: 5, value: 0 },
   ],
   fontValues: [
-    { id: 0, title: "Font One", status: true },
-    { id: 1, title: "Font Two", status: false },
-    { id: 2, title: "Font Three", status: false },
+    { id: 0, title: fontOne, status: true },
+    { id: 1, title: fontTwo, status: false },
+    { id: 2, title: fontThree, status: false },
   ],
   themeColors: [
-    { id: 0, title: "Theme One", colorCode: softRed, status: false },
-    { id: 1, title: "Theme Two", colorCode: softBlue, status: true },
-    { id: 2, title: "Theme Three", colorCode: softPurple, status: false },
+    { id: 0, colorCode: colorOne, status: true },
+    { id: 1, colorCode: colorTwo, status: false },
+    { id: 2, colorCode: colorThree, status: false },
   ],
+  theme: { mainColor: colorOne, mainFont: fontOne },
   isModalOpen: false,
 };
 

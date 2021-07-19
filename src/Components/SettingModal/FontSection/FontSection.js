@@ -6,7 +6,7 @@ import { SETTING_FONT_TOGGLE } from "../../../GlobalContext/actionType";
 import { useGlobalContext } from "../../../GlobalContext/Context";
 
 function FontSection({ formSetting, setFormSetting }) {
-  const { fontValues, dispatch } = useGlobalContext();
+  const { dispatch, state, fontValues = state.fontValues } = useGlobalContext();
   function fontHandler(id, title) {
     dispatch({ type: SETTING_FONT_TOGGLE, payload: id });
     setFormSetting({ ...formSetting, fontName: title });

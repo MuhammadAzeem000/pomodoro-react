@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { medium, veryDarkBlue, softRed } from "../../globalStyle";
+import { medium, veryDarkBlue } from "../../GlobalStyles/variables";
 
 const Logo = styled.h1`
   font-size: 28px;
   text-align: center;
   margin-bottom: 0px;
+  background-color: ${({ theme }) => theme.mainColor};
 `;
 
 const Menu = styled.ul`
@@ -22,7 +23,7 @@ const MenuItem = styled.li`
   text-transform: capitalize;
   letter-spacing: 1px;
   cursor: pointer;
-  background-color: ${(prop) => prop.isActive && softRed};
+  background-color: ${({ isActive, theme }) => isActive && theme.mainColor};
   color: ${(prop) => prop.isActive && veryDarkBlue};
   border-radius: ${(prop) => prop.isActive && "50px"};
 `;

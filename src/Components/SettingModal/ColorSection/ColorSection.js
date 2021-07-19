@@ -7,10 +7,14 @@ import { useGlobalContext } from "../../../GlobalContext/Context";
 import { SETTING_COLOR_TOGGLE } from "../../../GlobalContext/actionType";
 
 function ColorSection({ formSetting, setFormSetting }) {
-  const { themeColors, dispatch } = useGlobalContext();
-  function colorHandler(id, title) {
+  const {
+    state,
+    dispatch,
+    themeColors = state.themeColors,
+  } = useGlobalContext();
+  function colorHandler(id, colorCode) {
     dispatch({ type: SETTING_COLOR_TOGGLE, payload: id });
-    setFormSetting({ ...formSetting, colorName: title });
+    setFormSetting({ ...formSetting, colorName: colorCode });
   }
   return (
     <ModalSection>
@@ -23,7 +27,7 @@ function ColorSection({ formSetting, setFormSetting }) {
               key={id}
               color={colorCode}
               isActive={status}
-              onClick={() => colorHandler(id, title)}
+              onClick={() => colorHandler(id, colorCode)}
             >
               {status && <TickIcon src={checkIcon} />}
             </ColorSelectorIcon>

@@ -1,10 +1,13 @@
 import React from "react";
 import { ModalSection, ModalHeading } from "../settingModalStyle";
 import { TimerSettingInput, TimerSetting, Label } from "./style";
-import { timeValues } from "../../../data";
 import { removeSpace } from "../../../functions/function";
 
+import { useGlobalContext } from "../../../GlobalContext/Context";
+
 function TimeSection({ formSetting, setFormSetting }) {
+  const { state, timeValues = state.timeValues } = useGlobalContext();
+
   function timeHandler(e, title) {
     if (title === "Pomodoro") {
       setFormSetting({

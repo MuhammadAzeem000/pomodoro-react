@@ -2,10 +2,10 @@ import styled from "styled-components";
 import {
   darkBlue,
   white,
-  softRed,
   bold,
   borderBottom,
-} from "../../globalStyle";
+  colorOne,
+} from "../../GlobalStyles/variables";
 
 //Main Body
 const ModalWrapper = styled.form`
@@ -64,7 +64,7 @@ const ApplyButton = styled.button`
   transform: translateX(100%);
   border: none;
   padding: 15px 30px 15px 30px;
-  background-color: ${softRed};
+  background-color: ${colorOne};
   color: ${white};
   font-weight: ${bold};
   border-radius: 50px;

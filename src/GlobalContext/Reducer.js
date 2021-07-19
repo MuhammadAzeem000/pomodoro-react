@@ -4,6 +4,7 @@ import {
   SETTING_TOGGLE,
   SETTING_FONT_TOGGLE,
   SETTING_COLOR_TOGGLE,
+  SETTING_FORM_SUBMIT,
 } from "./actionType";
 
 export default (state, action) => {
@@ -30,6 +31,15 @@ export default (state, action) => {
       return {
         ...state,
         isModalOpen: action.payload,
+      };
+    }
+    case SETTING_FORM_SUBMIT: {
+      const { fontName, colorName } = action.payload;
+      console.log({ fontName, colorName });
+      return {
+        ...state,
+        theme: { ...state.theme, mainColor: colorName, mainFont: fontName },
+        isModalOpen: false,
       };
     }
     default: {

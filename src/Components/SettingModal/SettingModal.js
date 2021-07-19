@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import TimeSection from "./TimeSection/TimesSection";
 import FontSection from "./FontSection/FontSection";
 import ColorSection from "./ColorSection/ColorSection";
-import { SETTING_TOGGLE } from "../../GlobalContext/actionType";
+import {
+  SETTING_TOGGLE,
+  SETTING_FORM_SUBMIT,
+} from "../../GlobalContext/actionType";
 import { useGlobalContext } from "../../GlobalContext/Context";
+import { colorOne, fontOne } from "../../GlobalStyles/variables";
 
 import CloseIconURL from "../../assets/close.svg";
 
@@ -17,16 +21,22 @@ import {
 } from "./settingModalStyle";
 
 function SettingModal() {
-  const [formSetting, setFormSetting] = useState({
-    pomodoroTime: null,
-    shortTime: null,
-    longTime: null,
-    fontName: null,
-    colorName: null,
-  });
-  const { dispatch } = useGlobalContext();
   const Components = [TimeSection, FontSection, ColorSection];
-  console.log(Components);
+  const { dispatch } = useGlobalContext();
+  const [formSetting, setFormSetting] = useState({
+    pomodoroTime: 0,
+    shortTime: 0,
+    longTime: 0,
+    fontName: fontOne,
+    colorName: colorOne,
+  });
+  function formHandler(e) {
+    e.preventDefault();
+    dispatch({
+      type: SETTING_FORM_SUBMIT,
+      payload: formSetting,
+    });
+  }
   return (
     <ModalWrapper>
       <ModalHeader>
@@ -52,7 +62,7 @@ function SettingModal() {
           );
         })}
 
-        <ApplyButton type="submit">Apply</ApplyButton>
+        <ApplyButton onClick={formHandler}>Apply</ApplyButton>
       </ModalBody>
     </ModalWrapper>
   );

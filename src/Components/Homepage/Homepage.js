@@ -9,7 +9,7 @@ import {
 } from "../../GlobalContext/actionType";
 
 function Homepage() {
-  const { menuItems, dispatch } = useGlobalContext();
+  const { dispatch, state, menuItems = state.menuItems } = useGlobalContext();
   return (
     <>
       <Logo>Pomodoro</Logo>

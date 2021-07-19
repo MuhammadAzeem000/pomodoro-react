@@ -1,25 +1,14 @@
 import { createGlobalStyle } from "styled-components";
-//Theme Colors
-const softRed = "#fb6b6f";
-const softBlue = "#72F1F8";
-const softPurple = "#D883FC";
-
-//Other Colors
-const darkBlue = "#1e2142";
-const veryDarkBlue = "#141a30";
-const white = "#fff";
-const greyish = "#eef0fc";
-const medium = 500;
-const bold = 700;
-const borderBottom = `2px solid ${greyish}`;
+import { darkBlue, bold, white } from "./variables";
 
 const GlobalStyle = createGlobalStyle`
 * {
   margin: 0px;
   padding: 0px;
-  font-family: "Poppins", sans-serif;
+  font-family: ${({ theme }) => theme.mainFont};
   box-sizing: border-box;
 }
+
 body {
     display: flex;
     align-items: center;
@@ -45,16 +34,4 @@ ul {
 }
 `;
 
-export {
-  GlobalStyle,
-  softRed,
-  softBlue,
-  softPurple,
-  darkBlue,
-  veryDarkBlue,
-  white,
-  greyish,
-  medium,
-  bold,
-  borderBottom,
-};
+export { GlobalStyle };

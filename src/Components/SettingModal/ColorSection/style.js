@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { bold } from "../../../globalStyle";
+import { bold } from "../../../GlobalStyles/variables";
 
 //Font Section
 

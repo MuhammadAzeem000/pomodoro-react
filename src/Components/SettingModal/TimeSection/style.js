@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { greyish, medium } from "../../../globalStyle";
+import { greyish, medium } from "../../../GlobalStyles/variables";
 
 //Timer Section
 const TimerSetting = styled.div`
