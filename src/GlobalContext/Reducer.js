@@ -1,4 +1,4 @@
-import { toggleItem } from "../functions/function";
+import { toggleItem, findItemById, setTimings } from "../functions/function";
 import {
   HOMEPAGE_MENU_TOGGLE,
   SETTING_TOGGLE,
@@ -13,6 +13,7 @@ export default (state, action) => {
       return {
         ...state,
         menuItems: toggleItem(state.menuItems, action.payload),
+        currentTime: findItemById(state.menuItems, action.payload),
       };
     }
     case SETTING_FONT_TOGGLE: {
@@ -37,6 +38,7 @@ export default (state, action) => {
       const { fontName, colorName } = action.payload;
       return {
         ...state,
+        menuItems: setTimings(state.menuItems, action.payload),
         theme: { ...state.theme, mainColor: colorName, mainFont: fontName },
         isModalOpen: false,
       };

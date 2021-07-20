@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { veryDarkBlue, white } from "../../../GlobalStyles/variables";
 
 const TimerCircle = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,11 +20,12 @@ const TimerText = styled.h1`
   font-size: 75px;
   margin: 0px;
   text-align: center;
+  color: ${white};
 `;
 
 const TimerPause = styled.p`
   position: absolute;
-  bottom: 33%;
+  bottom: 25%;
   font-size: 16px;
   letter-spacing: 10px;
 `;

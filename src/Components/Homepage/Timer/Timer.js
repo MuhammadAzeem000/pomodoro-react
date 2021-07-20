@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { TimerCircle, TimerText, TimerPause } from "./style";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import { addZero, formatRemainingTime } from "../../../functions/function";
+import { formatRemainingTime } from "../../../functions/function";
+import { useGlobalContext } from "../../../GlobalContext/Context";
 
 function Timer() {
+  const {
+    state,
+    color = state.theme.mainColor,
+    time = state.currentTime,
+  } = useGlobalContext();
   const [isPlay, setIsPlay] = useState(true);
 
   const renderTime = ({ remainingTime }) => {
@@ -15,8 +21,8 @@ function Timer() {
       <CountdownCircleTimer
         isPlaying={isPlay}
         strokeWidth={10}
-        duration={10}
-        colors={[["#FB6B6F"]]}
+        duration={time}
+        colors={[[color]]}
         size={300}
         trailColor={"transparent"}
       >

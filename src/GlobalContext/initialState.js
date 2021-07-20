@@ -5,19 +5,19 @@ import {
   fontOne,
   fontTwo,
   fontThree,
+  titles,
 } from "../GlobalStyles/variables";
-const titles = ["Pomodoro", "Short Break", "Long Break"];
 
 const initialState = {
   menuItems: [
-    { id: 0, title: titles[0], status: true },
-    { id: 1, title: titles[1], status: false },
-    { id: 2, title: titles[2], status: false },
+    { id: 0, title: titles[0], status: true, time: 0 },
+    { id: 1, title: titles[1], status: false, time: 0 },
+    { id: 2, title: titles[2], status: false, time: 0 },
   ],
   timeValues: [
-    { id: 0, title: titles[0], min: 0, max: 15, value: 0 },
-    { id: 1, title: titles[1], min: 0, max: 10, value: 0 },
-    { id: 2, title: titles[2], min: 0, max: 5, value: 0 },
+    { id: 0, title: titles[0], min: 0, max: 15 },
+    { id: 1, title: titles[1], min: 0, max: 10 },
+    { id: 2, title: titles[2], min: 0, max: 5 },
   ],
   fontValues: [
     { id: 0, title: fontOne, status: true },
@@ -30,6 +30,7 @@ const initialState = {
     { id: 2, colorCode: colorThree, status: false },
   ],
   theme: { mainColor: colorOne, mainFont: fontOne },
+  currentTime: 60,
   isModalOpen: false,
 };
 

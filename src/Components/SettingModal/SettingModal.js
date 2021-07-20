@@ -7,8 +7,6 @@ import {
   SETTING_FORM_SUBMIT,
 } from "../../GlobalContext/actionType";
 import { useGlobalContext } from "../../GlobalContext/Context";
-import { colorOne, fontOne } from "../../GlobalStyles/variables";
-
 import CloseIconURL from "../../assets/close.svg";
 
 import {
@@ -22,13 +20,13 @@ import {
 
 function SettingModal() {
   const Components = [TimeSection, FontSection, ColorSection];
-  const { dispatch } = useGlobalContext();
+  const { state, dispatch } = useGlobalContext();
   const [formSetting, setFormSetting] = useState({
     pomodoroTime: 0,
     shortTime: 0,
     longTime: 0,
-    fontName: fontOne,
-    colorName: colorOne,
+    fontName: state.theme.mainFont,
+    colorName: state.theme.mainColor,
   });
   function formHandler(e) {
     e.preventDefault();

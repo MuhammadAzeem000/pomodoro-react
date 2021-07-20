@@ -1,3 +1,6 @@
+//Application Menu Items
+const titles = ["Pomodoro", "Short Break", "Long Break"];
+
 //Font Family
 const fontOne = "Poppins";
 const fontTwo = "Roboto";
@@ -35,4 +38,5 @@ export {
   fontOne,
   fontTwo,
   fontThree,
+  titles,
 };
