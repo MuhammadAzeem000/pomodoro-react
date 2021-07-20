@@ -18,4 +18,12 @@ function addZero(num) {
   return num < 10 ? "0" + num : num;
 }
 
-export { toggleItem, removeSpace };
+//Time Formattting
+const formatRemainingTime = (time) => {
+  const minutes = Math.floor((time % 3600) / 60);
+  const seconds = time % 60;
+
+  return `${addZero(minutes)}:${addZero(seconds)}`;
+};
+
+export { toggleItem, removeSpace, addZero, formatRemainingTime };

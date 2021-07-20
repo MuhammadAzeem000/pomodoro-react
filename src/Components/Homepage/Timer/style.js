@@ -22,6 +22,8 @@ const TimerText = styled.h1`
 `;
 
 const TimerPause = styled.p`
+  position: absolute;
+  bottom: 33%;
   font-size: 16px;
   letter-spacing: 10px;
 `;
