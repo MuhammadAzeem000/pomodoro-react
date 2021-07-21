@@ -35,11 +35,12 @@ export default (state, action) => {
       };
     }
     case SETTING_FORM_SUBMIT: {
-      const { fontName, colorName } = action.payload;
+      const { pomodoroTime, fontName, colorName } = action.payload;
       return {
         ...state,
         menuItems: setTimings(state.menuItems, action.payload),
         theme: { ...state.theme, mainColor: colorName, mainFont: fontName },
+        currentTime: pomodoroTime,
         isModalOpen: false,
       };
     }

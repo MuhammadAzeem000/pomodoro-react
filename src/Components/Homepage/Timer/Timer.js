@@ -18,7 +18,7 @@ function Timer() {
       ...prevState,
       index: prevState.index + 1,
     }));
-  }, [state.menuItems]);
+  }, [time]);
 
   const renderTime = ({ remainingTime }) => {
     return <TimerText>{formatRemainingTime(remainingTime)}</TimerText>;
