@@ -4,7 +4,6 @@ import SettingModal from "./SettingModal/SettingModal";
 import { useGlobalContext } from "../GlobalContext/Context";
 import { GlobalStyle } from "../GlobalStyles/globalStyle";
 import { ThemeProvider } from "styled-components";
-
 function App() {
   const {
     state,
@@ -15,7 +14,8 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        {isModalOpen ? <SettingModal /> : <Homepage />}
+        <Homepage />
+        {isModalOpen && <SettingModal />}
       </ThemeProvider>
     </>
   );

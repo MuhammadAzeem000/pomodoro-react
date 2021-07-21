@@ -15,7 +15,7 @@ const initialState = {
     { id: 2, title: titles[2], status: false, time: 0 },
   ],
   timeValues: [
-    { id: 0, title: titles[0], min: 0, max: 15 },
+    { id: 0, title: titles[0], min: 0, max: 25 },
     { id: 1, title: titles[1], min: 0, max: 10 },
     { id: 2, title: titles[2], min: 0, max: 5 },
   ],
@@ -30,7 +30,7 @@ const initialState = {
     { id: 2, colorCode: colorThree, status: false },
   ],
   theme: { mainColor: colorOne, mainFont: fontOne },
-  currentTime: 60,
+  currentTime: 0,
   isModalOpen: false,
 };
 

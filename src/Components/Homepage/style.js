@@ -5,7 +5,6 @@ const Logo = styled.h1`
   font-size: 28px;
   text-align: center;
   margin-bottom: 0px;
-  background-color: ${({ theme }) => theme.mainColor};
 `;
 
 const Menu = styled.ul`

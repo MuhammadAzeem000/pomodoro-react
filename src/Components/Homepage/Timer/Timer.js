@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TimerCircle, TimerText, TimerPause } from "./style";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { formatRemainingTime } from "../../../functions/function";
@@ -10,16 +10,32 @@ function Timer() {
     color = state.theme.mainColor,
     time = state.currentTime,
   } = useGlobalContext();
-  const [isPlay, setIsPlay] = useState(true);
+
+  const [clockState, setClockState] = useState({ isPause: true, index: 0 });
+
+  useEffect(() => {
+    setClockState((prevState) => ({
+      ...prevState,
+      index: prevState.index + 1,
+    }));
+  }, [state.menuItems]);
 
   const renderTime = ({ remainingTime }) => {
     return <TimerText>{formatRemainingTime(remainingTime)}</TimerText>;
   };
 
   return (
-    <TimerCircle onClick={() => setIsPlay(!isPlay)}>
+    <TimerCircle
+      onClick={() =>
+        setClockState((prevState) => ({
+          ...prevState,
+          isPause: !prevState.isPause,
+        }))
+      }
+    >
       <CountdownCircleTimer
-        isPlaying={isPlay}
+        key={clockState.index}
+        isPlaying={clockState.isPause}
         strokeWidth={10}
         duration={time}
         colors={[[color]]}
@@ -28,7 +44,7 @@ function Timer() {
       >
         {renderTime}
       </CountdownCircleTimer>
-      <TimerPause>{!isPlay && "PAUSE"}</TimerPause>
+      <TimerPause>{!clockState.isPause && "PAUSE"}</TimerPause>
     </TimerCircle>
   );
 }

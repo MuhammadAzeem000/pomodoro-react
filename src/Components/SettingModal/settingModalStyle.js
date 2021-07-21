@@ -9,7 +9,10 @@ import {
 
 //Main Body
 const ModalWrapper = styled.form`
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: ${white};
   border-radius: 5px;
   color: ${darkBlue};
@@ -60,8 +63,8 @@ const ModalSection = styled.div`
 
 const ApplyButton = styled.button`
   position: absolute;
-  bottom: -30px;
-  transform: translateX(100%);
+  right: 50%;
+  transform: translateX(50%);
   border: none;
   padding: 15px 30px 15px 30px;
   background-color: ${colorOne};
